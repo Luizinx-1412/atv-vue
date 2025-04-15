@@ -1,47 +1,80 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+function buscar() {
+  const termo = document.getElementById('search').value;
+  alert('Você pesquisou por: ' + termo);
+}
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <nav>
+      <div class="topo">
+        <div class="logo">
+          <h1>IFbooks</h1>
+          <p>apreço a<br>leitura</p>
+        </div>
+        <div class="search">
+          <input type="text" id="search" placeholder="Digite sua pesquisa...">
+          <button @click="buscar">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div class="paginas">
+          <p>Termos</p>
+          <p>Equipe</p>
+          <p>Envio</p>
+          <p>Devoluções</p>
+        </div>
+        <div class="icons">
+          <p><i class="fa-solid fa-cart-shopping"></i></p>
+          <p><i class="fa-solid fa-heart"></i></p>
+          <p><i class="fa-solid fa-user"></i></p>
+        </div>
+      </div>
+    </nav>
   </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+div.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.paginas {
+  display: flex;
+  gap: 10px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+button i {
+  pointer-events: none;
 }
 </style>
